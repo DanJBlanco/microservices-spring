@@ -15,4 +15,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>order-domain-core</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

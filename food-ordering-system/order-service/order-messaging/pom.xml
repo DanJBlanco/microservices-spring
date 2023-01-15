@@ -10,4 +10,7 @@
     </parent>
 
     <artifactId>order-messaging</artifactId>
+
+    <dependencies>
+    </dependencies>
 </project>
