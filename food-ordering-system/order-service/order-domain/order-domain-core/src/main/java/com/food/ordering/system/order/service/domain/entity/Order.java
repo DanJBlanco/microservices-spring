@@ -48,7 +48,7 @@ public class Order extends AggregateRoot<OrderId> {
         return price;
     }
 
-    public List<com.food.ordering.system.order.service.domain.entity.OrderItem> getItems() {
+    public List<OrderItem> getItems() {
         return items;
     }
 
