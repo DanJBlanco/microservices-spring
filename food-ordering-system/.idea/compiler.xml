@@ -2,21 +2,27 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="order-messaging" />
-        <module name="common" />
+        <module name="kafka-model" />
         <module name="order-application-service" />
-        <module name="infrastructure" />
+        <module name="kafka-consumer" />
         <module name="common-domain" />
+        <module name="kafka-producer" />
         <module name="order-application" />
+        <module name="kafka-config-data" />
         <module name="order-domain-core" />
         <module name="order-dataaccess" />
         <module name="order-container" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kafka-module" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -24,6 +30,12 @@
       <module name="common-domain" options="-parameters" />
       <module name="food-ordering-system" options="-parameters" />
       <module name="infrastructure" options="-parameters" />
+      <module name="kafka" options="-parameters" />
+      <module name="kafka-config-data" options="-parameters" />
+      <module name="kafka-consumer" options="-parameters" />
+      <module name="kafka-model" options="-parameters" />
+      <module name="kafka-module" options="-parameters" />
+      <module name="kafka-producer" options="-parameters" />
       <module name="order-application" options="-parameters" />
       <module name="order-application-service" options="-parameters" />
       <module name="order-container" options="-parameters" />
