@@ -23,7 +23,7 @@ public class OrderAddressEntity {
     private OrderEntity order;
 
     private String street;
-    private String postCode;
+    private String postalCode;
     private String city;
 
     @Override
