@@ -6,7 +6,8 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import java.io.Serializable;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.BiConsumer;
 
 public interface KafkaProducer <K extends Serializable, V extends SpecificRecordBase> {
-    void send(String topicName, K key, V message, CompletableFuture<SendResult<K, V>> callback);
+    void send(String topicName, K key, V message, BiConsumer<SendResult<K, V>, Throwable> callback);
 }
