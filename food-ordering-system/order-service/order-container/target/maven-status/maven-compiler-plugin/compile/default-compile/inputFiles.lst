@@ -1,1 +1,2 @@
-/Users/danielblanco/Documents/Github/microservices-spring/food-ordering-system/order-service/order-container/src/main/java/com/food/ordering/system/Main.java
+/Users/danielblanco/Documents/Github/microservices-spring/food-ordering-system/order-service/order-container/src/main/java/com/food/ordering/system/order/service/domain/OrderServiceApplication.java
+/Users/danielblanco/Documents/Github/microservices-spring/food-ordering-system/order-service/order-container/src/main/java/com/food/ordering/system/order/service/domain/BeanConfiguration.java

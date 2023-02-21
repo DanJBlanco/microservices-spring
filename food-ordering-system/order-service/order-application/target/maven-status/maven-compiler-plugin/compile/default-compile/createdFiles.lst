@@ -1,1 +1,2 @@
-com/food/ordering/system/Main.class
+com/food/ordering/system/order/service/application/rest/OrderController.class
+com/food/ordering/system/order/service/application/exception/handler/OrderGlobalExceptionHandler.class

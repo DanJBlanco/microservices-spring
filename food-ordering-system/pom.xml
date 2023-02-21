@@ -9,6 +9,7 @@
         <module>common</module>
         <module>infrastructure</module>
         <module>common/common-application</module>
+        <module>customer-service</module>
     </modules>
 
     <parent>
