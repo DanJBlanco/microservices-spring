@@ -16,9 +16,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @IdClass(RestaurantEntityId.class)
 @Table(name = "order_restaurant_m_view", schema = "restaurant")
 @Entity
@@ -34,6 +32,26 @@ public class RestaurantEntity extends RestaurantEntityId {
     private Boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
+
+    @Builder(builderMethodName = "RestaurantEntityBuilder")
+    public RestaurantEntity(UUID restaurantId, UUID productId, UUID restaurantId1, UUID productId1, String restaurantName, Boolean restaurantActive, String productName, BigDecimal productPrice) {
+        super(restaurantId, productId);
+        this.restaurantId = restaurantId1;
+        this.productId = productId1;
+        this.restaurantName = restaurantName;
+        this.restaurantActive = restaurantActive;
+        this.productName = productName;
+        this.productPrice = productPrice;
+    }
+
+    public RestaurantEntity(UUID restaurantId, UUID productId, String restaurantName, Boolean restaurantActive, String productName, BigDecimal productPrice) {
+        this.restaurantId = restaurantId;
+        this.productId = productId;
+        this.restaurantName = restaurantName;
+        this.restaurantActive = restaurantActive;
+        this.productName = productName;
+        this.productPrice = productPrice;
+    }
 
     @Override
     public boolean equals(Object o) {
