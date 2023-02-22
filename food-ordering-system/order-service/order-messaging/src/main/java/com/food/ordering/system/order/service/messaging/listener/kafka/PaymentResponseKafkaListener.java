@@ -16,13 +16,13 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class PaymentResponseKafkaLister implements KafkaConsumer<PaymentResponseAvroModel> {
+public class PaymentResponseKafkaListener implements KafkaConsumer<PaymentResponseAvroModel> {
 
     private final PaymentResponseMessageListener paymentResponseMessageListener;
     private final OrderMessagingDataMapper orderMessagingDataMapper;
 
-    public PaymentResponseKafkaLister(PaymentResponseMessageListener paymentResponseMessageListener,
-                                      OrderMessagingDataMapper orderMessagingDataMapper) {
+    public PaymentResponseKafkaListener(PaymentResponseMessageListener paymentResponseMessageListener,
+                                        OrderMessagingDataMapper orderMessagingDataMapper) {
         this.paymentResponseMessageListener = paymentResponseMessageListener;
         this.orderMessagingDataMapper = orderMessagingDataMapper;
     }

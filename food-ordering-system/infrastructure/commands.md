@@ -21,3 +21,13 @@ docker-compose -f common.yml -f init_kafka.yml up
 http://localhost:9000/
 
 ### 6. Register cluster
+
+assignt a name: food-ordering-system-cluster
+
+enter zookeeper: zookeeper:2181
+
+save
+
+### 7. Check if data is on the topic
+
+kafkacat -C -b localhost19092 -t payment-request

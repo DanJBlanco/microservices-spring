@@ -29,7 +29,16 @@ public class KafkaProducerImpl<K extends Serializable, V extends SpecificRecordB
         log.info("Sending message={} to topic={}", message, topicName);
         try {
             CompletableFuture<SendResult<K, V>> kafkaResultFuture = kafkaTemplate.send(topicName, key, message);
-            kafkaResultFuture.whenCompleteAsync(callback);
+            kafkaResultFuture.whenCompleteAsync(
+                    (re, err) -> {
+                        if (err == null) {
+                            log.error("ERROR");
+                        }
+                        else {
+                            log.info("WORKS");
+                        }
+                    }
+            );
         } catch (KafkaException err) {
             log.error("Error on kafka producer with key: {}, message: {}, and exception: {}", key, message, err.getMessage());
             throw new KafkaProducerException("Error on kafka producer with key: " + key + " and message: " + message);

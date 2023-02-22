@@ -10,6 +10,9 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/infrastructure/kafka/kafka-module/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-service/payment-domain/payment-application-service/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-core/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-service/payment-domain/payment-domain-service/pom.xml" />
       </set>
     </option>
   </component>
