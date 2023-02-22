@@ -12,8 +12,8 @@
     <artifactId>payment-domain</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>payment-core-domain</module>
-        <module>payment-service-domain</module>
+        <module>payment-domain-core</module>
+        <module>payment-application-service</module>
     </modules>
 
 
