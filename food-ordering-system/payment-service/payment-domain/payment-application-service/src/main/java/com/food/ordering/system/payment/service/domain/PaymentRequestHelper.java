@@ -89,7 +89,7 @@ public class PaymentRequestHelper {
     }
 
     private CreditEntry getCreditEntry(CustomerId customerId) {
-        Optional<CreditEntry> creditEntry = creditEntryRepository.findByCustomerId(customerId.getValue());
+        Optional<CreditEntry> creditEntry = creditEntryRepository.findByCustomerId(customerId);
 
         if (creditEntry.isEmpty()) {
             log.error("Could not find credit entry for customer: {}", customerId.getValue());
@@ -101,7 +101,7 @@ public class PaymentRequestHelper {
 
     private List<CreditHistory> getCreditHistory(CustomerId customerId) {
 
-        Optional<List<CreditHistory>> creditHistories = creditHistoryRepository.findByCustomerId(customerId.getValue());
+        Optional<List<CreditHistory>> creditHistories = creditHistoryRepository.findByCustomerId(customerId);
 
         if (creditHistories.isEmpty()){
             log.error("Could not find credit history for customer: {}", customerId.getValue());
