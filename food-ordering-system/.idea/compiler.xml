@@ -18,19 +18,19 @@
         <module name="order-dataaccess" />
         <module name="order-container" />
         <module name="order-messaging" />
+        <module name="payment-application-service" />
         <module name="payment-container" />
         <module name="common-domain" />
         <module name="order-application" />
-        <module name="payment-core-domain" />
         <module name="order-domain-core" />
+        <module name="payment-domain-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common-application" target="17" />
       <module name="kafka-module" target="17" />
       <module name="payment-application-domain" target="17" />
-      <module name="payment-application-service" target="17" />
-      <module name="payment-domain-core" target="17" />
+      <module name="payment-core-domain" target="17" />
       <module name="payment-domain-service" target="17" />
       <module name="payment-service-domain" target="17" />
     </bytecodeTargetLevel>
