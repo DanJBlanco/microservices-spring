@@ -1,10 +1,9 @@
-package com.food.ordering.system.order.service.dataaccess.restaurant.entity;
+package com.food.ordering.system.dataacess.restaurant.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +31,7 @@ public class RestaurantEntity extends RestaurantEntityId {
     private Boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
+    private Boolean productAvailable;
 
     @Builder(builderMethodName = "RestaurantEntityBuilder")
     public RestaurantEntity(UUID restaurantId, UUID productId, UUID restaurantId1, UUID productId1, String restaurantName, Boolean restaurantActive, String productName, BigDecimal productPrice) {
