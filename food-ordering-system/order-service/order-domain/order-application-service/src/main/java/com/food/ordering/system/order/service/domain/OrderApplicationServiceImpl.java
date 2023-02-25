@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 @Slf4j
-@Validated
 @Service
 class OrderApplicationServiceImpl implements OrderApplicationService {
 

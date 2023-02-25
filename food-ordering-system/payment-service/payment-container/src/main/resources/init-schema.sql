@@ -9,6 +9,7 @@ DROP TYPE IF EXISTS payment_status;
 CREATE TYPE payment_status as ENUM ('COMPLETED', 'CANCELLED', 'FAILED');
 
 DROP TABLE IF EXISTS "payment".payments CASCADE ;
+
 CREATE TABLE "payment".payments
 (
     id uuid NOT NULL ,
@@ -17,7 +18,7 @@ CREATE TABLE "payment".payments
     price numeric(10,2) NOT NULL ,
     create_at TIMESTAMP WITH TIME ZONE NOT NULL ,
     status payment_status NOT NULL ,
-    CONSTRAINT payments._pkey PRIMARY KEY (id)
+    CONSTRAINT payments_pkey PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS "payment".credit_entry CASCADE ;
@@ -31,7 +32,7 @@ CREATE TABLE "payment".credit_entry
 
 DROP TYPE IF EXISTS transaction_type;
 
-CREATE TYPE transaction_type as ENUM ('DEBIT', 'CREDTI');
+CREATE TYPE transaction_type as ENUM ('DEBIT', 'CREDIT' );
 
 DROP TABLE IF EXISTS "payment".credit_history CASCADE ;
 
