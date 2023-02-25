@@ -1,4 +1,4 @@
-package com.food.ordering.system.dataacess.restaurant.exception;
+package com.food.ordering.system.dataaccess.restaurant.exception;
 
 public class RestaurantDataAccessException extends RuntimeException{
 
