@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common-application" />
         <module name="kafka-model" />
         <module name="customer-service" />
         <module name="order-application-service" />
@@ -33,7 +34,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="common-application" target="17" />
       <module name="kafka-module" target="17" />
       <module name="payment-application-domain" target="17" />
       <module name="payment-core-domain" target="17" />

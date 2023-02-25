@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.messaging.publisher.kafka;
+package com.food.ordering.system.kafka.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
@@ -9,18 +9,17 @@ import java.util.function.BiConsumer;
 
 @Slf4j
 @Component
-public class OrderKafkaMessageHelper {
-
+public class KafkaMessageHelper {
 
     public <T> BiConsumer<SendResult<String, T>, Throwable> getKafkaCallback(
             String responseTopicName,
-            T requestAvroModel,
+            T avroModel,
             String orderId,
-            String requestAvroModelName) {
+            String avroModelName) {
         return (result, err) -> {
             if (err != null) {
                 log.error("Error while sending {} message {} to topic {}",
-                        requestAvroModelName, requestAvroModel.toString(), responseTopicName, err);
+                        avroModelName, avroModel.toString(), responseTopicName, err);
             }
             else  {
                 RecordMetadata metadata = result.getRecordMetadata();

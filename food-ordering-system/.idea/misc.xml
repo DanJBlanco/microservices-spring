@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/payment-service/payment-domain/payment-service-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/common/common-application/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
