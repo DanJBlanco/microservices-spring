@@ -4,7 +4,6 @@ import com.food.ordering.system.domain.valueobject.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Objects;

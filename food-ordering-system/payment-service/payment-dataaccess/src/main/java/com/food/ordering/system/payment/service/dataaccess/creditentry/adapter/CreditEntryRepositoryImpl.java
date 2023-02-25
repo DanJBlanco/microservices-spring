@@ -8,7 +8,6 @@ import com.food.ordering.system.payment.service.domain.ports.output.repository.C
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Component
 public class CreditEntryRepositoryImpl implements CreditEntryRepository {
