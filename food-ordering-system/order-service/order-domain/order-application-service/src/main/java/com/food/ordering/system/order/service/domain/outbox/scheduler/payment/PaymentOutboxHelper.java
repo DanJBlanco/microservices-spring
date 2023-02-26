@@ -1,5 +1,6 @@
 package com.food.ordering.system.order.service.domain.outbox.scheduler.payment;
 
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentOutboxMessage;
 import com.food.ordering.system.order.service.domain.ports.output.repository.PaymentOutboxRepository;
@@ -49,6 +50,10 @@ public class PaymentOutboxHelper {
                     orderPaymentOutboxMessage.getId());
         }
         log.info("OrderPaymentOutboxMessage saved with outbox id: {}", orderPaymentOutboxMessage.getId());
+    }
 
+    @Transactional
+    public void deletePaymentOutboxMessageByOutboxStatusAndSagaStatus(OutboxStatus orderStatus, SagaStatus... sagaStatus) {
+        paymentOutboxRepository.deleteByTypeAndOutboxStatusAndSagaStatus(ORDER_SAGA_NAME, orderStatus, sagaStatus);
     }
 }
