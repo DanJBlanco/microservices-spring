@@ -31,3 +31,8 @@ save
 ### 7. Check if data is on the topic
 
 kafkacat -C -b localhost19092 -t payment-request
+
+
+### 8. FIX error schema kafka
+
+curl -X PUT -H "Content-Type: application/json"  --data '{"compatibility": "NONE"}' http://localhost:8081/config/{topic-name}-value
