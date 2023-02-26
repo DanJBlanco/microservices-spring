@@ -31,3 +31,6 @@ save
 ### 7. Check if data is on the topic
 
 kafkacat -C -b localhost19092 -t payment-request
+
+
+.
