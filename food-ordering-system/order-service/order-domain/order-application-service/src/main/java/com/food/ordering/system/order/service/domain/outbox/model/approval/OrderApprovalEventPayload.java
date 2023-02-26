@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.domain.outbox.module.approval;
+package com.food.ordering.system.order.service.domain.outbox.model.approval;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
