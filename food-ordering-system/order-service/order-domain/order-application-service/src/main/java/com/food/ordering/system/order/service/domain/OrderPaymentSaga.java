@@ -122,8 +122,6 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
         }
 
         log.info("Order with id: {} is cancelled", order.getId().getValue());
-
-
     }
 
 
