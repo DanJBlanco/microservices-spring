@@ -20,6 +20,8 @@ public class OrderEventPayload {
     @JsonProperty
     private String customerId;
     @JsonProperty
+    private String orderId;
+    @JsonProperty
     private BigDecimal price;
     @JsonProperty
     private ZonedDateTime createdAt;
