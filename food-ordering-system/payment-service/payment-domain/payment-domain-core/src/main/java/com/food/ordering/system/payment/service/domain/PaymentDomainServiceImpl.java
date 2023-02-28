@@ -1,6 +1,5 @@
 package com.food.ordering.system.payment.service.domain;
 
-import com.food.ordering.system.domain.event.publisher.DomainEventPublisher;
 import com.food.ordering.system.domain.valueobject.Money;
 import com.food.ordering.system.domain.valueobject.PaymentStatus;
 import com.food.ordering.system.payment.service.domain.entity.CreditEntry;
@@ -22,7 +21,7 @@ import java.util.UUID;
 import static com.food.ordering.system.domain.DomainConstants.UTC;
 
 @Slf4j
-public class PaymentDomainServiceImpl implements PaymentDomainService{
+public class PaymentDomainServiceImpl implements PaymentDomainService {
 
     @Override
     public PaymentEvent validateAndInitiatePayment(Payment payment,

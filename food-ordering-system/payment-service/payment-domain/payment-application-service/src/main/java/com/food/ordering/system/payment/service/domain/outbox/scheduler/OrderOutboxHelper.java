@@ -53,6 +53,7 @@ public class OrderOutboxHelper {
         orderOutboxRepository.deleteByTypeAndOutboxStatus(ORDER_SAGA_NAME, outboxStatus);
     }
 
+    @Transactional
     public void saveOrderOutboxMessage(OrderEventPayload orderEventPayload,
                                        PaymentStatus paymentStatus,
                                        OutboxStatus outboxStatus,
