@@ -1,25 +1,40 @@
 package com.food.ordering.system.kafka.producer;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
+import com.food.ordering.system.outbox.OutboxStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 @Slf4j
 @Component
 public class KafkaMessageHelper {
 
-    public <T> BiConsumer<SendResult<String, T>, Throwable> getKafkaCallback(
+    private final ObjectMapper objectMapper;
+
+    public KafkaMessageHelper(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
+    public <T, U> BiConsumer<SendResult<String, T>, Throwable> getKafkaCallback(
             String responseTopicName,
             T avroModel,
+            U outboxMessage,
+            BiConsumer<U, OutboxStatus> outboxCallback,
             String orderId,
             String avroModelName) {
         return (result, err) -> {
+
             if (err != null) {
-                log.error("Error while sending {} message {} to topic {}",
-                        avroModelName, avroModel.toString(), responseTopicName, err);
+                log.error("Error while sending {} message {} and outbox type:{}  to topic {}",
+                        avroModelName, avroModel.toString(), outboxCallback.getClass().getName(), responseTopicName, err);
+                outboxCallback.accept(outboxMessage, OutboxStatus.FAIlED);
             }
             else  {
                 RecordMetadata metadata = result.getRecordMetadata();
@@ -30,7 +45,17 @@ public class KafkaMessageHelper {
                         metadata.partition(),
                         metadata.offset(),
                         metadata.timestamp());
+                outboxCallback.accept(outboxMessage, OutboxStatus.COMPLETED);
             }
         };
+    }
+
+    public <T> T  getOrderEventPayload(String payload, Class<T> outputType) {
+        try {
+            return objectMapper.readValue(payload, outputType);
+        } catch (JsonProcessingException e) {
+            log.error("Could not read {} object: ",outputType.getName(), e);
+            throw new OrderDomainException("Could not read "+outputType.getName() +" object!", e);
+        }
     }
 }

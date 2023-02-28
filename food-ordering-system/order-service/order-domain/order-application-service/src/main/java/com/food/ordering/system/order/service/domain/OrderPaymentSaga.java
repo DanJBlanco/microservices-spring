@@ -57,10 +57,10 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
     @Transactional
     public void process(PaymentResponse paymentResponse) {
 
-        Optional<OrderPaymentOutboxMessage> orderPaymentOutboxMessageResponse = paymentOutboxHelper.getPaymentOutboxMessageBySagaIdAndSagaStatus(
-                UUID.fromString(paymentResponse.getSagaId()),
-                SagaStatus.STARTED
-        );
+        Optional<OrderPaymentOutboxMessage> orderPaymentOutboxMessageResponse =
+                paymentOutboxHelper.getPaymentOutboxMessageBySagaIdAndSagaStatus(
+                        UUID.fromString(paymentResponse.getSagaId()),
+                        SagaStatus.STARTED);
 
         if (orderPaymentOutboxMessageResponse.isEmpty()) {
             log.info("An outbox message with saga id: {} is already processed!", paymentResponse.getSagaId());
