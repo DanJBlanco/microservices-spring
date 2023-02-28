@@ -7,17 +7,7 @@ import java.time.ZonedDateTime;
 import java.util.Collections;
 
 public class PaymentCancelledEvent extends PaymentEvent{
-
-    private final DomainEventPublisher<PaymentCancelledEvent> paymentCancelledEventDomainEventPublisher;
-
-    public PaymentCancelledEvent(Payment payment, ZonedDateTime createAt,
-                                 DomainEventPublisher<PaymentCancelledEvent> paymentCancelledEventDomainEventPublisher) {
-        super(payment, createAt, Collections.emptyList());
-        this.paymentCancelledEventDomainEventPublisher = paymentCancelledEventDomainEventPublisher;
-    }
-
-    @Override
-    public void fire() {
-        paymentCancelledEventDomainEventPublisher.publish(this);
+    public PaymentCancelledEvent(Payment payment, ZonedDateTime createAt) {
+        super(payment, createAt, Collections.emptyList());;
     }
 }
