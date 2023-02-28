@@ -7,12 +7,14 @@ import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderP
 import com.food.ordering.system.order.service.domain.ports.output.repository.PaymentOutboxRepository;
 import com.food.ordering.system.outbox.OutboxStatus;
 import com.food.ordering.system.saga.SagaStatus;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Component
 public class PaymentOutboxRepositoryImpl implements PaymentOutboxRepository {
 
     private final PaymentOutboxJpaRepository paymentOutboxJpaRepository;
