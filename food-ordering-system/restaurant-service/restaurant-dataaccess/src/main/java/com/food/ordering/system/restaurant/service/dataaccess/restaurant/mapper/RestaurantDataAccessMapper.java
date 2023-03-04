@@ -20,26 +20,26 @@ import java.util.stream.Collectors;
 
 @Component
 public class RestaurantDataAccessMapper {
-    public List<UUID> restaurantToRestaurantProducts(Restaurant restaurant){
+
+    public List<UUID> restaurantToRestaurantProducts(Restaurant restaurant) {
         return restaurant.getOrderDetail().getProducts().stream()
                 .map(product -> product.getId().getValue())
                 .collect(Collectors.toList());
     }
 
     public Restaurant restaurantEntityToRestaurant(List<RestaurantEntity> restaurantEntities) {
-
         RestaurantEntity restaurantEntity =
-                restaurantEntities.stream().findFirst().orElseThrow( () ->
-                        new RestaurantDataAccessException("Restaurant could not be found!"));
+                restaurantEntities.stream().findFirst().orElseThrow(() ->
+                        new RestaurantDataAccessException("No restaurants found!"));
 
-        List<Product> restaurantProducts = restaurantEntities.stream().map(
-                entity -> Product.builder()
-                        .productId(new ProductId(entity.getProductId()))
-                        .name(entity.getProductName())
-                        .price(new Money(entity.getProductPrice()))
-                        .available(entity.getProductAvailable())
-                        .build())
-                .toList();
+        List<Product> restaurantProducts = restaurantEntities.stream().map(entity ->
+                        Product.builder()
+                                .productId(new ProductId(entity.getProductId()))
+                                .name(entity.getProductName())
+                                .price(new Money(entity.getProductPrice()))
+                                .available(entity.getProductAvailable())
+                                .build())
+                .collect(Collectors.toList());
 
         return Restaurant.builder()
                 .restaurantId(new RestaurantId(restaurantEntity.getRestaurantId()))
@@ -48,25 +48,24 @@ public class RestaurantDataAccessMapper {
                         .build())
                 .active(restaurantEntity.getRestaurantActive())
                 .build();
-
     }
 
     public OrderApprovalEntity orderApprovalToOrderApprovalEntity(OrderApproval orderApproval) {
-
         return OrderApprovalEntity.builder()
                 .id(orderApproval.getId().getValue())
                 .restaurantId(orderApproval.getRestaurantId().getValue())
                 .orderId(orderApproval.getOrderId().getValue())
-                .status(orderApproval.getOrderApprovalStatus())
+                .status(orderApproval.getApprovalStatus())
                 .build();
     }
 
-    public OrderApproval orderApprovalEntityToOrderApproval(OrderApprovalEntity orderApprovalEntity){
+    public OrderApproval orderApprovalEntityToOrderApproval(OrderApprovalEntity orderApprovalEntity) {
         return OrderApproval.builder()
                 .orderApprovalId(new OrderApprovalId(orderApprovalEntity.getId()))
                 .restaurantId(new RestaurantId(orderApprovalEntity.getRestaurantId()))
-                .orderId(new OrderId(orderApprovalEntity.getRestaurantId()))
-                .orderApprovalStatus(orderApprovalEntity.getStatus())
+                .orderId(new OrderId(orderApprovalEntity.getOrderId()))
+                .approvalStatus(orderApprovalEntity.getStatus())
                 .build();
     }
+
 }
