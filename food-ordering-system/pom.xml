@@ -32,6 +32,8 @@
         <spring-kafka.version>3.0.2</spring-kafka.version>
         <kafka-avro-serializer.version>7.3.1</kafka-avro-serializer.version>
         <avro.version>1.11.0</avro.version>
+        <maven.compile.source>17</maven.compile.source>
+        <maven.compile.target>17</maven.compile.target>
     </properties>
 
     <dependencyManagement>

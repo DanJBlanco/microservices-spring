@@ -31,3 +31,15 @@ docker images | grep food.ordering.system
 3. create kubernetes deployment files
 
    create application-deployment-loca.yml into food-or....-infra directory
+
+
+### Deploy kafka cluster
+
+1. helm install local-confluent-kafka cp-helm-charts --version 0.6.0
+2. kubectl get pods
+3. (food-ordering-system-infra) kubectl apply -f application-deployment-local-yml
+4. execute step 2
+5. (check logs) kubectl logs POD_NAAME
+6. (update pom, and run mvn clean install)
+7. (delete kubectl pods)
+8.
