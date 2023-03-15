@@ -42,4 +42,8 @@ docker images | grep food.ordering.system
 5. (check logs) kubectl logs POD_NAAME
 6. (update pom, and run mvn clean install)
 7. (delete kubectl pods)
-8.
+8. ---
+9. kubectl apply -f postgres-deployment.yml
+10. cd heml
+11. exec step 1
+12. exec step 3
