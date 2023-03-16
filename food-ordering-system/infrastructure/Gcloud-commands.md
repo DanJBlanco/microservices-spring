@@ -34,4 +34,11 @@ Google Cloud platform
     * config local docker location `gcloud auth configure-docker europe-west4-docker.pkg.dev`
     * docker tag images
     * docker push images
+  * Google Console
+    * Open shell
+    * git clone cp-helm-charts
+    * helm version
+    * helm install gke-confluent-kafka cp-helm-charts/ --version 0.6.0
+    * approve authoritation
+    * kubectl get pods
     *
