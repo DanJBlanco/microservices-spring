@@ -27,4 +27,11 @@ Google Cloud platform
     * Region
       * europe-west4
     * Create
-  *
+  * Push local imagen to google repository
+    * Install gcloud CLI
+    * gcloud auth login
+    * docker images | grep food.ordering.system
+    * config local docker location `gcloud auth configure-docker europe-west4-docker.pkg.dev`
+    * docker tag images
+    * docker push images
+    *
