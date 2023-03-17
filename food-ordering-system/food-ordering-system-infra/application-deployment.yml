@@ -21,6 +21,8 @@ spec:
           env:
             - name: SPRING_DATASOURCE_URL
               value: "jdbc:postgresql://postgres-service:5432/postgres?currentSchema=order&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified"
+            - name: SPRING_DATASOURCE_INITIALIZATION-MODE
+              value: "never"
             - name: KAFKA-CONFIG_BOOTSTRAP-SERVERS
               value: "gke-confluent-kafka-cp-kafka-headless:9092"
             - name: KAFKA-CONFIG_SCHEMA-REGISTRY-URL
@@ -49,6 +51,26 @@ spec:
       port: 8181
   type: LoadBalancer
   loadBalancerIP: ""
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: order-deployment-hpa
+  namespace: default
+  labels:
+    app: order-deployment
+spec:
+  scaleTargetRed:
+    kind: Deployment
+    name: order-deployment
+    apiVersion: apps/v1
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 85
 ---
 apiVersion: apps/v1
 kind: Deployment
