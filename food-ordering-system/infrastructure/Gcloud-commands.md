@@ -41,4 +41,27 @@ Google Cloud platform
     * helm install gke-confluent-kafka cp-helm-charts/ --version 0.6.0
     * approve authoritation
     * kubectl get pods
-    *
+    * git clone infra projectcd
+    * cd food-ordering-system-infra
+    * kubectl apply -f kafka-client.yml
+    * kubectl get pods
+    * kubectl cp create-topics.sh kafka-client/kafka-client-storage
+    * kubectl exec -it kafka-client -- /bin/bash
+    * kubectl cp create-topics.sh kafka-client:/kafka-client-storage
+    * kubectl exec -it kafka-client -- /bin/bash
+    * ls
+    * cd ../..
+    * ls
+    * cd kafka-client-storage
+    * sh create-topics.sh gke-confluent-kafka-cp-zookeeper-headless
+    * exit
+    * kubectl apply -f postgres-deployment.yml
+    * kubectl get pods | grep postgres
+    * (External IP)
+      * kubectl get all
+      * WEB: kubernetes engine>Services & Ingress
+    * kubectl apply -f application-deployment.yml 
+    * kubectl get pods | grep deployment
+    * kubectl logs POD_NAME
+    * kubectl get all
+    * 
